@@ -16,6 +16,6 @@ A Bitcoin Cash recovery tool for BitGo wallets
 
 # Future Improvements
 
-- Add unit tests
+- Add unit tests for each of the recovery sub functions, need to mock the document first 
 
-This tool is also hosted at: http://bitgo.github.io/bitgo-recovery-tool/
+This tool is also hosted at: https://timothyylim.github.io/bitgo-bcash-recovery-tool/
