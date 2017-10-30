@@ -1,0 +1,28 @@
+{
+  "name": "recover",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "browserify src/index.js -t -t [ babelify --presets [ stage-2 ] ] -o dist/index.js",
+    "watch": "watchify src/index.js --debug -t [ babelify --presets [ stage-2 ] ] -o dist/index.js "
+  },
+  "author": "Timothy Lim",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.17.0",
+    "bluebird": "^3.5.1",
+    "lodash": "^4.17.4",
+    "rewire": "^2.5.2",
+    "sha.js": "^2.4.9",
+    "sjcl": "^1.0.7",
+    "tape": "^4.8.0"
+  },
+  "devDependencies": {
+    "babel-preset-stage-2": "^6.24.1",
+    "babelify": "^7.3.0",
+    "browserify": "^14.4.0",
+    "standard": "^10.0.3",
+    "watchify": "^3.9.0"
+  }
+}

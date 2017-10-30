@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>BitGo Bitcoin Cash Recovery Tool</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div class="jumbotron jumbotron-sm">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-lg-12">
+          <h1 class="h1">
+            BitGo Bitcoin Cash Wallet Recovery
+          </h1>
+          <h3 class="h3">
+              This page is hosted on <a href="https://timothyylim.github.io/bitgo-bcash-recovery-tool/">github.io</a>
+            </h3>
+          <span id="current-mode"></span>
+          <a id="mode-switch" onClick="setTimeout(renderForm); return true"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <form>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="well well-sm">
+            <div class="row">
+              <div class="col-md-12">
+                <div id="passphrase-group" class="form-group">
+                  <label for="passphrase">
+                    Wallet passcode</label>
+                  <input class="form-control" type="password" id="passphrase" placeholder="The password of the wallet you're recovering (if keys encrypted)" required="required" />
+                </div>
+                <div class="form-group">
+                  <label id="boxa-label" for="boxa">User Private Key (Box A on BitGo Keycard)</label>
+                  <input type="text" class="form-control" id="boxa" required="required" placeholder="The password of the wallet you're recovering (if keys encrypted)"/>
+                </div>
+                <div class="form-group">
+                  <label for="boxb">Backup Key (Either Box B on BitGo Keycard if it's a backup private key OR the private key corresponding to Box B if it is a public key)</label>
+                  <input type="text" class="form-control" id="boxb" required="required" placeholder="This is your private key, either as a BIP32 xprv or as encrypted JSON" />
+                </div>
+                <div class="form-group">
+                  <label for="boxc">BitGo Key (Box C on BitGo Keycard)</label>
+                  <input type="text" class="form-control" id="boxc" placeholder="This is the public half of the key BitGo has generated for this wallet (BIP32 xpub)" required="required" />
+                </div>
+                <div class="form-group">
+                  <label for="destinationAddress">Destination Recovery Address</label>
+                  <input type="text" class="form-control" id="destinationAddress" placeholder="The bitcoin address to send recovered funds" required="required" />
+                </div>
+              </div>
+              <div class="col-md-12">
+                <button type="button" class="btn btn-primary pull-right" id="btnStartRecovery">
+                  Begin Wallet Recovery</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+    <div class="row">
+      <div class="col-md-12">
+        <form>
+          <div class="well well-sm">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="name">
+                    Message Console</label>
+                  <textarea name="console" id="console" disabled class="form-control" rows="9" cols="25" style="resize:vertical"></textarea>
+                </div>
+                <div id="sendSection" style="display:none;">
+                  <div class="col-md-12">
+                    <div class="row">
+                      <div class="col-md-9">
+                        <div class="form-group">
+                          <input type="text" class="form-control" id="message" placeholder="I agree to send..." />
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <button type="button" class="btn btn-primary pull-right" id="btnSendTransaction">Send Transaction</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+              </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</body>
+<script type="text/javascript" src="./dist/index.js"></script>
+</html>
