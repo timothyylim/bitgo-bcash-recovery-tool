@@ -1,5 +1,5 @@
 {
-  "name": "recover",
+  "name": "bitgo-bcash-recovery-tool",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
