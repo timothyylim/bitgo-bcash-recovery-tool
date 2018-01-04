@@ -1,5 +1,4 @@
 const axios = require('axios')
-const bitcoin = require('bcashjs-lib')
 const index = require('./index')
 const generateAddress = require('./generateAddress')
 
@@ -78,7 +77,7 @@ const getUnspentAddresses = function (hdNodes, path, network) {
         network
       })
 
-      axios.get('http://blockdozer.com/insight-api/addr/' + generatedAddress.address)
+      axios.get('https://blockdozer.com/insight-api/addr/' + generatedAddress.address)
         .then(response => {
           const address = response.data
           const transactionCount = address.transactions.length
@@ -111,7 +110,7 @@ const getUnspentAddresses = function (hdNodes, path, network) {
 }
 
 const getUnspentTransactions = function (addressList) {
-  return axios.get('http://blockdozer.com/insight-api/addrs/' + addressList.join() + '/utxo')
+  return axios.get('https://blockdozer.com/insight-api/addrs/' + addressList.join() + '/utxo')
     .then(response => {
       return response.data
     })
